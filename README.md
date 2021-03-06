@@ -1,4 +1,4 @@
-# Programación Declarativa
+# Declarative Programming
 
-## Carpetas
-  ejercicios: ejemplos de ciao prolog
+## Folders
+  exercises: prolog examples & exercises
