@@ -11,3 +11,6 @@ Exponential operator implementation
 
 ## factorial.pl
 Factorial operation implementation
+
+## date.pl
+Program that evaluates a given date considering its day, month and weekday
