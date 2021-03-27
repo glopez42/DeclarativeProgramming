@@ -1,3 +1,5 @@
+:- module(_,_,[assertions,regtypes]).
+
 nat(0).
 nat(s(X)) :- nat(X).
 
@@ -13,3 +15,4 @@ exp(0,X,s(0)):- nat(X).
 exp(s(N),X,Y):-
     times(X,W,Y),
     exp(N,X,W).
+

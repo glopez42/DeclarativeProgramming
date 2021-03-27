@@ -1,0 +1,46 @@
+:- module(_,_,[assertions,regtypes]).
+
+alumno_prode('Lopez','Garcia','Guillermo','a180182').
+
+
+% nat/1, es cierto si la expresión es un número natural
+nat(0).
+nat(s(X)) :- nat(X).
+
+% lista/1, es cierto si la expresión es una lista
+lista([]).
+lista([_|Y]):-
+    lista(Y).
+
+% plus/3, es cierto si el tercer argumento es la suma de los dos primeros
+plus(X,0,X) :-
+    nat(X).
+plus(X,s(Y),s(Z)) :-
+    plus(X,Y,Z).
+
+
+% nums/2, es cierto si el primer argumento es un natural
+% y el segundo una lista descendente desde ese número, hasta 1
+nums(s(0),[s(0)]).
+nums(s(N),[s(N)|Np]) :-
+    nat(N),
+    nums(N,Np).
+
+
+% sumlist/2, es cierto si el segundo argumento es la suma de los
+% elementos del primero
+sumlist([],0).
+sumlist([N|Np],S) :-
+    plus(N,Sp,S), % es cierto si Sp = N - S
+    sumlist(Np,Sp).
+
+
+choose_one(E,[E|Lp],Lp) :- % caso base, si se ha encontrado E y el resto es el mismo
+    lista(Lp).
+choose_one(E,[X|Lp],[X|Rp]) :-
+    choose_one(E,Lp,Rp).
+
+
+    
+    
+    
