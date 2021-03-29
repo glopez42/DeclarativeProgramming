@@ -18,18 +18,11 @@ plus(X,0,X) :-
 plus(X,s(Y),s(Z)) :-
     plus(X,Y,Z).
 
-% member/2, es cierto si el primer argumento está contenido en la lista
-% del segundo argumento
-esMiembro(X,[X|Y]) :- list(Y).
-esMiembro(X,[_|T]) :-
-    esMiembro(X,T).
-
 
 % nums/2, es cierto si el primer argumento es un natural
 % y el segundo una lista descendente desde ese número, hasta 1
 nums(s(0),[s(0)]).
 nums(s(N),[s(N)|Np]) :-
-    nat(N),
     nums(N,Np).
 
 
@@ -51,9 +44,25 @@ choose_one(E,[X|Lp],[X|Rp]) :-
 
 % perm/3, cierto si la segunda lista es una permutación de la primera
 perm([],[]). % caso base, dos listas vacías
-perm([X|L],Lp) :-
-    choose_one(X,Lp,R), % se quita X de Lp si se encuentra, y se guarda en R
-    perm(L,R). % se comprueba con lo que queda de las listas
+perm(L,Lp) :-
+    choose_one(X,L,R),
+    choose_one(X,Lp,Rp),
+    perm(R,Rp).
+
+
+% split/3, cierto si la segunda lista tiene los elementos en posición par
+% de la primera lista, y la tercera, los de posición impar
+split([],[],[]). %caso base, las tres listas están vacías
+split([X1,X2|Xn],[X1|Xp],[X2|Xpp]) :- % el primer argumento asegura que la lista tenga un nº par de elementos
+    split(Xn,Xp,Xpp).
+
+
+sumlists(N,L1,L2,S) :-
+    nums(N,L),        % L es una lista desde N a 1
+    perm(L,Lp),       % Lp tiene que ser una permutación de L
+    split(Lp,L1,L2),  % Lp es una composición de L1 y L2
+    sumlist(L1,S),    % S es el resultado de la suma de elementos de L1 y L2
+    sumlist(L2,S).
 
 
 
