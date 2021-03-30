@@ -30,8 +30,8 @@ nums(s(N),[s(N)|Np]) :-
 % elementos del primero
 sumlist([],0).
 sumlist([N|Np],S) :-
-    plus(N,Sp,S), % es cierto si Sp = N - S
-    sumlist(Np,Sp).
+    sumlist(Np,Sp),  % se llega recursivamente al caso base
+    plus(N,Sp,S).    % se suman los valores recursivamente
 
 
 % choose_one/3, dado un elemento, devuelve cierto si el tercer argumento
@@ -44,16 +44,16 @@ choose_one(E,[X|Lp],[X|Rp]) :-
 
 % perm/3, cierto si la segunda lista es una permutación de la primera
 perm([],[]). % caso base, dos listas vacías
-perm(L,Lp) :-
-    choose_one(X,L,R),
-    choose_one(X,Lp,Rp),
-    perm(R,Rp).
+perm([X|R],L) :-
+    perm(R,Lp), % de este modo llega al último elemento recursivamente
+    choose_one(X,L,Lp).  % con las repeticiones se va creando L
+
 
 
 % split/3, cierto si la segunda lista tiene los elementos en posición par
 % de la primera lista, y la tercera, los de posición impar
 split([],[],[]). %caso base, las tres listas están vacías
-split([X1,X2|Xn],[X1|Xp],[X2|Xpp]) :- % el primer argumento asegura que la lista tenga un nº par de elementos
+split([X1,X2|Xn],[X1|Xp],[X2|Xpp]) :- % el primer argumento asegura que tenga un nº par de elementos
     split(Xn,Xp,Xpp).
 
 
@@ -63,6 +63,10 @@ sumlists(N,L1,L2,S) :-
     split(Lp,L1,L2),  % Lp es una composición de L1 y L2
     sumlist(L1,S),    % S es el resultado de la suma de elementos de L1 y L2
     sumlist(L2,S).
+
+
+
+
 
 
 
