@@ -2,6 +2,7 @@
 
 alumno_prode('Lopez','Garcia','Guillermo','a180182').
 
+% PARTE 1
 
 % nat/1, es cierto si la expresión es un número natural
 nat(0).
@@ -66,9 +67,43 @@ sumlists(N,L1,L2,S) :-
 
 
 
+% PARTE 2
 
+% make_matrix/3, cierto si el primer argumento(una lista), forma las filas de
+% una matriz cuadrada de N*N
+make_matrix([], _, []).
+make_matrix(Lista, N, [Fila|Filas]):-
+  take_N(Lista, N, Fila, Rest),  % se cogen los N elementos de Lista y se guardan en Fila
+  make_matrix(Rest, N, Filas).   % se hace lo mismo con el resto de la lista
 
+% take_N/4, cierto si el último argumento es una lista resultada de quitarle
+% N elementos a la primera lista. Rest es lo que queda de la lista original
+take_N(Rest, 0, [], Rest).
+take_N([Elem|Lista], s(N), [Elem|Lista2], Rest):-
+  take_N(Lista, N, Lista2, Rest).
 
+% check_sum/2, cierto si todas las filas de una matriz suman lo mismo
+check_sum([],_).
+check_sum([Fila|Filas], Sum) :-
+    sumlist(Fila,Sum),
+    check_sum(Filas,Sum).
 
+% times/3, cierto si el tercer argumento es la multiplicacion de los dos primeros
+times(X,0,0):- nat(X).
+times(X,s(Y),Z):-
+    times(X,Y,W),
+    plus(X,W,Z).
 
-    
+% exp/3, cierto si tercer argumento es el segundo argumento elvado al primero
+exp(0,X,s(0)):- nat(X).
+exp(s(N),X,Y):-
+    exp(N,X,W),
+    times(W,X,Y).
+
+% square_lists/3, cierto si SQ es una matriz cuadrada de N*N, cuyas filas suman S
+square_lists(N,SQ,S) :-
+    exp(s(s(0)),N,N2),  % N2 será N al cuadrado
+    nums(N2,Lista),     % Lista tendrá todos los elementos de 1 a N2
+    perm(Lista,ListaP), % Se hacen las permutaciones necesarias
+    make_matrix(ListaP,N,SQ), % Se forma la matriz de N filas
+    check_sum(SQ,S). % Se comprueba que todas sumen lo mismo
