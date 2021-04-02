@@ -22,7 +22,7 @@ plus(X,s(Y),s(Z)) :-
 
 % nums/2, es cierto si el primer argumento es un natural
 % y el segundo una lista descendente desde ese número, hasta 1
-nums(s(0),[s(0)]).
+nums(0,[]).
 nums(s(N),[s(N)|Np]) :-
     nums(N,Np).
 
