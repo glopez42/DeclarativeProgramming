@@ -2,6 +2,64 @@
 
 alumno_prode('Lopez','Garcia','Guillermo','a180182').
 
+:- doc(title, "Practica 1 - Sumas de pares de listas y cuadrados").
+:- doc(author, "Guillermo Lopez Garcia, a180182").
+
+:- doc(module, "Este modulo define dos programas, sumlists/4 y square_lists/3.
+
+Para el primero, dado un numero N par, se devuelven dos listas L1 y L2 que contienen entre las dos los números de Peano de 1 a N y cuya suma es la misma, S.
+@subsection{Ejemplos de uso:}
+@begin{enumerate}
+@item Ej:
+@begin{verbatim}
+?- sumlists(s(s(s(s(0)))),L1,L2,S).
+
+L1 = [s(s(s(0))),s(s(0))],
+L2 = [s(s(s(s(0)))),s(0)],
+S = s(s(s(s(s(0))))) ? 
+yes
+?-
+@end{verbatim}
+@item Ej:
+@begin{verbatim}
+?- sumlists(s(s(s(s(s(s(s(s(0)))))))),L1,L2,S).
+
+L1 = [s(s(s(s(s(s(s(0))))))),s(s(s(s(s(0))))),s(s(s(s(0)))),s(s(0))],
+L2 = [s(s(s(s(s(s(0)))))),s(s(s(s(s(s(s(s(0)))))))),s(s(s(0))),s(0)],
+S = s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(0)))))))))))))))))) ? 
+yes
+?-
+@end{verbatim}
+@end{enumerate}
+
+Por otra parte, para square_lists/4, dado un numero N, se devuelve una matriz cuadrada de N*N que contiene todos los numeros de Peano del 1 a N² y cuyas filas suman lo mismo.
+@subsection{Ejemplos de uso:}
+@begin{enumerate}
+@item Ej:
+@begin{verbatim}
+?- square_lists(s(s(0)),SQ,S).
+
+S = s(s(s(s(s(0))))),
+SQ = [[s(s(s(0))),s(s(0))],[s(s(s(s(0)))),s(0)]] ? 
+
+yes
+?- 
+@end{verbatim}
+@item Ej:
+@begin{verbatim}
+?- square_lists(s(s(s(0))),SQ,S).
+
+S = s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(0))))))))))))))),
+SQ = [[s(s(s(s(s(s(s(s(0)))))))),s(s(s(s(0)))),s(s(s(0)))],
+     [s(s(s(s(s(s(s(0))))))),s(s(s(s(s(s(0)))))),s(s(0))],
+     [s(s(s(s(s(s(s(s(s(0))))))))),s(s(s(s(s(0))))),s(0)]] ? 
+
+yes
+?-
+@end{verbatim}
+@end{enumerate}
+").
+
 % PARTE 1
 
 % nat/1, es cierto si la expresión es un número natural
