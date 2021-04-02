@@ -100,8 +100,14 @@ exp(s(N),X,Y):-
     exp(N,X,W),
     times(W,X,Y).
 
+% greater_zero/1, cierto si el número es mayor que 0.
+greater_zero(s(0)).
+greater_zero(s(N)) :-
+    greater_zero(N).
+
 % square_lists/3, cierto si SQ es una matriz cuadrada de N*N, cuyas filas suman S
 square_lists(N,SQ,S) :-
+    greater_zero(N),    % N tiene que ser mayor que 0
     exp(s(s(0)),N,N2),  % N2 será N al cuadrado
     nums(N2,Lista),     % Lista tendrá todos los elementos de 1 a N2
     perm(Lista,ListaP), % Se hacen las permutaciones necesarias
