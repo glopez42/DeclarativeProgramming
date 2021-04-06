@@ -1,0 +1,17 @@
+\entry{alumno{\_}prode/4:}{2}{\code {alumno_prode/4:}}
+\entry{nat/1:}{2}{\code {nat/1:}}
+\entry{lista/1:}{2}{\code {lista/1:}}
+\entry{plus/3:}{2}{\code {plus/3:}}
+\entry{nums/2:}{3}{\code {nums/2:}}
+\entry{sumlist/2:}{3}{\code {sumlist/2:}}
+\entry{choose{\_}one/3:}{3}{\code {choose_one/3:}}
+\entry{perm/2:}{3}{\code {perm/2:}}
+\entry{split/3:}{4}{\code {split/3:}}
+\entry{sumlists/4:}{4}{\code {sumlists/4:}}
+\entry{make{\_}matrix/3:}{4}{\code {make_matrix/3:}}
+\entry{take{\_}N/4:}{4}{\code {take_N/4:}}
+\entry{check{\_}sum/2:}{4}{\code {check_sum/2:}}
+\entry{times/3:}{5}{\code {times/3:}}
+\entry{exp/3:}{5}{\code {exp/3:}}
+\entry{greater{\_}zero/1:}{5}{\code {greater_zero/1:}}
+\entry{square{\_}lists/3:}{5}{\code {square_lists/3:}}

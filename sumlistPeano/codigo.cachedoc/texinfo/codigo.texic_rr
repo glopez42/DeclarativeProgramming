@@ -1,0 +1,5 @@
+filetype(module).
+main_title([[string_esc("Sumas de pares de listas y cuadrados")]]).
+sect([level(0)],global_label("Sumas de pares de listas y cuadrados"),[string_esc("Sumas de pares de listas y cuadrados")]).
+refs_link(codigointro).
+refs_link(codigorefs).

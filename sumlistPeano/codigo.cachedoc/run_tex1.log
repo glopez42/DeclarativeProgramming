@@ -1,0 +1,14 @@
+This is TeXk, Version 3.14159265 (TeX Live 2019/Debian) (preloaded format=tex)
+
+(./codigo.texic (./texinfo.tex Loading texinfo package [Version 2.257]:
+Basics, fonts, page headings, tables, indexing, sectioning, toc, environments,
+defuns, macros, cross references,
+(/usr/share/texlive/texmf-dist/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
+) paper sizes, and turning on texinfo input format.) [1] [2] [-1]
+(./codigointro.texic (codigo) [1] [2] (./codigo.tmp) (./codigo.tmp)
+(./codigo.tmp) (./codigo.tmp) [3] [4]) (./codigorefs.texic (References)
+[5] [6]) [7] [8] )
+(see the transcript file for additional information)
+Output written on codigo.dvi (11 pages, 9680 bytes).
+Transcript written on codigo.log.
