@@ -10,10 +10,10 @@ alumno_prode('Lopez','Garcia','Guillermo','a180182').
 :- doc(module, "Este modulo define dos programas, sumlists/4 y square_lists/3.
 
 Para el primero, dado un numero N par, se devuelven dos listas L1 y L2 que contienen 
-entre las dos los números de Peano de 1 a N y cuya suma es la misma, S.
+entre las dos los numeros de Peano de 1 a N y cuya suma es la misma, S.
 @subsection{Ejemplos de sumlists/4:}
 @begin{enumerate}
-@item 1)
+@item
 @begin{verbatim}
 ?- sumlists(s(s(s(s(0)))),L1,L2,S).
 
@@ -49,7 +49,7 @@ SQ = [[s(s(s(0))),s(s(0))],[s(s(s(s(0)))),s(0)]] ?
 yes
 ?- 
 @end{verbatim}
-@item 2)
+@item
 @begin{verbatim}
 ?- square_lists(s(s(s(0))),SQ,S).
 
@@ -63,7 +63,7 @@ yes
 @end{verbatim}
 @end{enumerate}
 
-Mas adelante se muestran los predicados y propiedades que se han utilizado.
+A continuacion, se muestran los predicados y propiedades que se han utilizado.
 ").
 
 % PARTE 1
