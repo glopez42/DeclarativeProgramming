@@ -1,0 +1,20 @@
+:- module(_,_,[assertions]).
+
+%definition of a biniry tree
+binary_tree (void).
+binary_tree (tree(Element ,Left , Right )) :-
+    binary_tree (Left),
+    binary_tree ( Right ).
+
+%true if X is a member of the tree
+tree_member (X,tree(X,Left , Right )) :-
+    binary_tree (Left),
+    binary_tree ( Right ).
+tree_member (X,tree(Y,Left , Right )) :-
+    tree_member (X,Left).
+tree_member (X,tree(Y,Left , Right )) :-
+    tree_member (X, Right ).
+
+%test de un arbol binario de raiz 'a' con dos hijos 'b' y 'c'
+:- test binary_tree(tree(E,L,R)) :
+   (E = a, L = tree(b,void,void), R = tree(c,void,void)) => not_fails 
