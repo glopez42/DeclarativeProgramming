@@ -2,14 +2,17 @@
 
 alumno_prode('Lopez','Garcia','Guillermo','a180182').
 
+:- dynamic memo/2.
 
 comprimir(Inicial,Comprimida) :-
     limpia_memo,
     compresion_recursiva(Inicial,Comprimida).
-limpia_memo.
+
+limpia_memo :-
+    retractall(memo(_,_)).
 
 compresion_recursiva(Inicial,Comprimida) :-
-    mejor_compresion(Inicial,Comprimida).
+    mejor_compresion_memo(Inicial,Comprimida).
 
 
 partir(Todo, Parte1, Parte2) :-
@@ -18,6 +21,7 @@ partir(Todo, Parte1, Parte2) :-
     notEmptyList(Parte2).
 
 parentesis(Parte,Num,ParteNum) :-
+    number(Num),
     length(Parte,L),
     %si la lista tiene mas de dos elementos se ponen los parentesis
     ( L >= 2 ->
@@ -72,6 +76,17 @@ mejor_compresion(Inicial,Comprimida) :-
     !. %No se necesita que siga buscando
 mejor_compresion(Inicial,Inicial).    
 
+
+%FASE D
+
+mejor_compresion_memo(Inicial,Comprimida) :-
+    memo(Inicial,Comprimida),
+    !.
+mejor_compresion_memo(Inicial,Comprimida) :-
+    mejor_compresion(Inicial,Comprimida),
+    assert(memo(Inicial,Comprimida)).
+
+
 %Programas auxiliares
 
 %Cierto si se le pasa como argumento una lista no vacia
@@ -95,5 +110,3 @@ shortest_list([Lista|Resto],_Shortest,Resultado,N) :-
     length(Lista,Length),
     N > Length,
     shortest_list(Resto,Lista,Resultado,Length).
-
-    
