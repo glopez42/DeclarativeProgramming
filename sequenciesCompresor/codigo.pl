@@ -2,10 +2,10 @@
 :- use_package(nativeprops).
 :- use_module(library(unittest/unittest_props)).
 
-alumno_prode('Lopez','Garcia','Guillermo','a180182').
+alumno_prode('Surname','Last Name','Name','nº matricula').
 
 :- doc(title, "Compresion de secuencias").
-:- doc(author, "Guillermo Lopez Garcia, a180182").
+:- doc(author, "Nombre, nº matricula").
 
 :- doc(module, "Este modulo define el programa comprimir/2, que dada una lista de caracteres devuelve la compresion adecuada, siguiendo las reglas del enunciado de la practica.
 
