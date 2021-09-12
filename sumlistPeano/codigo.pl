@@ -2,10 +2,10 @@
 :- use_package(nativeprops).
 :- use_module(library(unittest/unittest_props)).
 
-alumno_prode('Lopez','Garcia','Guillermo','a180182').
+alumno_prode('Apellido1','Apellido2','Nombre','nº matricula').
 
 :- doc(title, "Sumas de pares de listas y cuadrados").
-:- doc(author, "Guillermo Lopez Garcia, a180182").
+:- doc(author, "Nombre, nº matricula").
 
 :- doc(module, "Este modulo define dos programas, sumlists/4 y square_lists/3.
 
